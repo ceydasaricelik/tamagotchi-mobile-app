@@ -1,62 +1,59 @@
-# 🐾 Tamagotchi - React Native Sanal Evcil Hayvan
+# 🐾 Tamagotchi - React Native Sanal Evcil Hayvan Mobil Uygulaması
 
-Modern, retro-kawaii tasarım diline sahip tam donanımlı bir sanal evcil hayvan (Tamagotchi) simülasyonu. Tamamen React Native ve Expo altyapısı kullanılarak geliştirilmiş olup, Context API tabanlı güçlü bir State yönetimi içermektedir.
+Modern ve *retro-kawaii* tasarım diline sahip, Play Store standartlarında derlenmiş uçtan uca eksiksiz bir sanal evcil hayvan simülasyonu. Tamamen **React Native** ve **Expo** altyapısıyla geliştirilmiş olup, Context API tabanlı güçlü bir State yönetimiyle oyunlaştırma (gamification) dinamiklerini bir araya getirmektedir.
 
-[**⬇️ Uygulamayı İndir (APK)**](#) *(Buraya APK Linki Gelecek)*  
-[**▶️ Oynanış Videosunu İzle (YouTube)**](#) *(Buraya YouTube Linki Gelecek)*
+[![İndir - APK](https://img.shields.io/badge/İndir-APK-success?style=for-the-badge&logo=android)](https://github.com/ceydasaricelik/tamagotchi-mobile-app/releases/download/v1.0.0/tamagotchi-app-v1.apk)  
 
----
-
-## 🎯 Projenin Amacı ve Özellikleri
-Kullanıcıların kendi seçtikleri ve isimlendirdikleri evcil bir hayvanı büyüterek ona bakmalarını sağlayan, gelişmiş döngülere sahip bir uygulamadır. 
-
-### 🌟 Ana Oyunlaştırma (Gamification) Döngüsü:
-- **Canlı Evren (Game Loop):** Arka planda çalışan 10 saniyelik döngülerle evcil hayvanınızın enerjisi (`-2`) ve mutluluğu (`-5`) sürekli azalır.
-- **Uyku Sistemi (💤):** Evcil hayvanınız yoruldu mu? `Uyut` butonuna basarak dinlenmesini sağlayın. Uyku modundayken enerji her 10 saniyede bir hızla `+10` artar ancak mutluluk düşüşü durur ve hayvanla etkileşim (oyun/market) kilitlenir.
-- **Oyun Alanı (Play):** Evcil hayvanınızı eğlendirmek için *Konsol, Top, Tenis veya Uçurtma* gibi aktivitelerden birini seçebilirsiniz. Her biri farklı seviyede enerji harcarken karşılığında **+15 Jeton ve XP** kazandırır.
-- **Market Sistemi (Beslenme):** Oyunlardan kazandığınız jetonlarla (🪙) Market'ten kahve, hamburger, pasta veya sushi satın alıp petinizin enerjisini anında doldurabilirsiniz.
-- **Seviye Atlama (Level Up):** Oyunlardan topladığınız her `100 XP`, evcil hayvanınızın seviye atlamasını sağlar. Yeni seviyede sevimli bir zıplama animasyonu ve **+50 Bonus Jeton** sizi bekliyor!
+> **🎥 Oynanış ve Tanıtım Videosu:**  
+> [Buraya tıklayarak 1 dakikalık YouTube tanıtım videosunu izleyebilirsiniz.](https://youtube.com/shorts/n9jua5EXSpY)
 
 ---
 
-## 🚀 Kurulum ve Çalıştırma Rehbeli
+## 🎯 Projenin Amacı ve Oyunlaştırma (Gamification) Dinamikleri
 
-Bu projeyi yerel cihazınızda test etmek veya geliştirmek için adım adım talimatları aşağıda bulabilirsiniz.
+Kullanıcının seçtiği ve isimlendirdiği bir evcil hayvanı büyüterek ona bakmasını amaçlayan, arka planda (background) karmaşık yaşam döngülerine sahip sürükleyici bir uygulamadır.
 
-### 1. Gereksinimler
-- Node.js (v18+)
-- Expo CLI (`npm install -g expo-cli`)
-- iOS için Expo Go (veya Mac için Xcode), Android için Android Studio / Expo Go.
-
-### 2. Projeyi Çalıştırma (Geliştirici Modu)
-Projeyi klonladıktan veya indirdikten sonra terminali proje dizininde açın:
-
-```bash
-# Bağımlılıkları Yükleyin
-npm install
-
-# Projeyi Başlatın (Tunnel aracılığıyla her ağdan bağlanabilmek için)
-npx expo start --clear --tunnel
-```
-Ekrana gelen QR kodu **Expo Go** uygulaması ile okutarak telefonunuzda doğrudan test edebilirsiniz.
-
-### 3. Uygulamayı Android Studio ile APK'ya Çevirme (Prebuild)
-Eğer Expo altyapısından çıkıp uygulamayı doğrudan test edilebilir, yüklenebilir bir Android `.apk` dosyasına dönüştürmek isterseniz:
-
-```bash
-# 1. Projeye native Android / iOS dosyalarını (klasörlerini) oluşturun
-npx expo prebuild
-```
-*Bu komuttan sonra Android Studio'yu açıp oluşturulan `android` klasörünü çalıştırabilir ve **Build > Build Bundle(s) / APK(s) > Build APK(s)** menüsünden çıktınızı alabilirsiniz.*
+### 🌟 Temel Oyun Döngüsü (Game Loop)
+- **Canlı Evren:** Arka planda aktif olarak çalışan `setInterval` tabanlı 10 saniyelik döngülerle evcil hayvanın enerjisi (`-2`) ve mutluluğu (`-5`) anlık olarak azalır.
+- **Uyku Sistemi (💤):** Evcil hayvan yorulduğunda `Uyut` moduna geçirilebilir. Uyku esnasında mutluluk düşüşü durur ve enerji her 10 saniyede bir hızla (`+10`) yenilenir. Hayvan uyurken aksiyonlar kilitlenir.
+- **Eğlence ve Oyun Alanı (Play):** Hayvanın enerjisini harcayarak mutluluğunu yükseltmek için *Konsol, Top, Tenis veya Uçurtma* gibi mini aktiviteler sunulur. Her oyun dinamik enerji maliyetlerine sahipken, oynandığında oyuncuya taze tecrübe puanı (XP) ve harcanabilir Jeton (Coin) bırakır.
+- **Market Sistemi (Beslenme):** Oyunlardan toplanan jetonlarla (🪙), hayvanın enerjisini dolduracak besinler *(Hamburger, Pasta, Sushi vb.)* satın alınıp tüketilir. Paranızı stratejik yönetmeniz gerekir.
+- **Seviye Atlama (Level Up):** Her `100 XP` barajı aşıldığında tam ekran UI bileşenleriyle kutlama animasyonları girer ve hayvanın yeni versiyonuna geçişi vurgulanarak oyuncuya yüksek miktarda (+50) Bonus Jeton hediye edilir.
 
 ---
 
 ## 🛠 Kullanılan Teknolojiler
-- **Framework:** React Native (Expo SDK 54)
-- **State Management:** React Context API (Global State)
-- **Navigation:** React Navigation (Native Stack)
-- **Animasyonlar:** React Native built-in `Animated` API
-- **UI/UX:** Retro-Kawaii Custom UI (Sabit kahve-ton çerçeveler, pastel renk paleti ve Absolute Positioning ZZZ dinamikleri).
+- **Framework:** React Native, Expo SDK
+- **Durum Yönetimi (State):** React Context API (Global State)
+- **Sayfa Yönlendirme:** React Navigation (Native Stack)
+- **Animasyon Ağı:** React Native built-in `Animated` API
+- **Mimari ve UI/UX:** Atomic component mimarisi, retro kalın çerçeveli pastel palet ve platform-bağımsız Native stillendirme.
 
-<br/>
-<p align="center">Sevgiyle geliştirildi ❤️</p>
+---
+
+## 🚀 Kurulum ve Geliştirici Ortamında Çalıştırma (Installation & Run)
+
+Bu projeyi yerel cihazınızda test etmek veya kodlara katkı sağlamak (Clone & Run) için aşağıdaki terminal komutlarını kullanabilirsiniz:
+
+### 1. Projeyi Bilgisayarınıza İndirin (Klonlayın)
+```bash
+git clone https://github.com/ceydasaricelik/tamagotchi-mobile-app.git
+cd tamagotchi-mobile-app
+```
+
+### 2. Gerekli Kütüphaneleri (Bağımlılıkları) Yükleyin
+```bash
+npm install
+```
+
+### 3. Geliştirme Sunucusunu Başlatın
+Telefonunuzdaki **Expo Go** uygulamasıyla kodu anında derleyip görmek için projenizi başlatın:
+```bash
+npx expo start --clear --tunnel
+```
+*(Ekranda beliren QR kodu iOS kamerasından veya Android'deki Expo Go uygulamasından okutabilirsiniz.)*
+
+---
+
+🩷 **Katkıda Bulunan**  
+👑 Halide Ceyda Sarıçelik
